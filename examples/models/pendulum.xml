@@ -1,0 +1,17 @@
+<mujoco model="pendulum">
+  <compiler inertiafromgeom="true"/>
+  <default>
+    <geom contype="0" rgba="0.7 0.7 0 1"/>
+    <motor ctrlrange="-3 3"/>
+  </default>
+  <option gravity="0 0 -9.81" integrator="RK4" timestep="0.02"/>
+  <worldbody>
+    <body name="pendulum" pos="0 0 0">
+      <joint axis="0 1 0" name="hinge" pos="0 0 0"/>
+      <geom fromto="0 0 0 0.001 0 -0.6" name="pendulum" rgba="0 0.7 0.7 1" size="0.049 0.3" type="capsule"/>
+    </body>
+  </worldbody>
+  <actuator>
+    <motor joint="hinge"/>
+  </actuator>
+</mujoco>
